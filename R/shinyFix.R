@@ -5,6 +5,10 @@
 #' @export
 shinyFix <- function () {
   activeDocument <- rstudioapi::getActiveDocumentContext()
+  if (rstudioapi::getActiveDocumentContext()$id=='#console') {
+    rstudioapi::showDialog("Error", "Your cursor needs to be in the file you want to fix (not the console)")
+    return(FALSE)
+  }
   text <- paste0(activeDocument$contents,collapse = '\n')
   tokens <- sourcetools::tokenize_string(text)
   find_scopes <- function(tokens) {
@@ -82,12 +86,7 @@ shinyFix <- function () {
   if (all(is.na(tokens$err))) {
     return(TRUE)
   }
-  if (!is.null(path)) {
-    lines <- readLines(path)
-  }
-  else {
-    lines <- strsplit(text, "\n")[[1]]
-  }
+  lines <- strsplit(text, "\n")[[1]]
   show_code_error <- function(msg, lines, row, col) {
     message(paste0(msg, "\n", row, ":", lines[row], 
                    "\n", paste0(rep.int(" ", nchar(as.character(row)) + 
