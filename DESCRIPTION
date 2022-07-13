@@ -1,0 +1,11 @@
+Package: shinyFixR
+Title: Move your cursor to the location of the first error in a shiny application.
+Version: 0.1
+Authors@R: 
+    person("Jared", "Norman", , "jared.norman@uct.ac.za", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5692-999X"))
+Description: Addin which runs the same diagnostics as shiny does during startup but moves your cursor to the first error.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
