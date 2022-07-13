@@ -84,6 +84,7 @@ shinyFix <- function () {
   tokens <- find_scopes(tokens)
   tokens <- check_commas(tokens)
   if (all(is.na(tokens$err))) {
+    rstudioapi::showDialog("Complete", "No issues found")
     return(TRUE)
   }
   lines <- strsplit(text, "\n")[[1]]
