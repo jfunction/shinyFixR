@@ -101,6 +101,8 @@ shinyFix <- function () {
       rstudioapi::setSelectionRanges(rstudioapi::document_range(FROM,TO),
                                      id=activeDocument$id)
     }
+    # Ensure the source panel is in focus so user can make edits
+    rstudioapi::executeCommand('activateSource')
   }
   err_idx <- which(!is.na(tokens$err))
   msg <- ""
