@@ -1,6 +1,6 @@
 Package: shinyFixR
 Title: Move your cursor to the location of the first error in a shiny application.
-Version: 0.1
+Version: 0.2
 Authors@R: 
     person("Jared", "Norman", , "jared.norman@uct.ac.za", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5692-999X"))

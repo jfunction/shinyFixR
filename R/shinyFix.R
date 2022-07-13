@@ -94,6 +94,13 @@ shinyFix <- function () {
                                           1), collapse = ""), gsub(perl = TRUE, "[^\\s]", 
                                                                    " ", substr(lines[row], 1, col - 1)), "^"))
     rstudioapi::setCursorPosition(rstudioapi::document_position(row,col), id=activeDocument$id)
+    # If there's a comma that's not meant to be here, select it
+    if (grepl('extra comma', msg)) {
+      FROM <- rstudioapi::document_position(row,col)
+      TO <- rstudioapi::document_position(row,col+1)
+      rstudioapi::setSelectionRanges(rstudioapi::document_range(FROM,TO),
+                                     id=activeDocument$id)
+    }
   }
   err_idx <- which(!is.na(tokens$err))
   msg <- ""
