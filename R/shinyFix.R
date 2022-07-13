@@ -1,3 +1,8 @@
+#' Fix shiny code.
+#'
+#' Call this function as an addin move the cursor to the first warning.
+#'
+#' @export
 shinyFix <- function () {
   activeDocument <- rstudioapi::getActiveDocumentContext()
   text <- paste0(activeDocument$contents,collapse = '\n')
