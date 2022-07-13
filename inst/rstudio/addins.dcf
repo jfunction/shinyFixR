@@ -1,0 +1,4 @@
+Name: Fix Shiny Code
+Description: Allows more interactive use of shiny diagnostics by moving cursor to error location.
+Binding: shinyFix
+Interactive: false
